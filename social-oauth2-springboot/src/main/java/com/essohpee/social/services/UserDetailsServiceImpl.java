@@ -39,7 +39,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         List<String> roleNames = this.appRoleDAO.getRoleNames(appUser.getUserId());
 
-        List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
+        List<GrantedAuthority> grantList = new ArrayList<>();
         if (roleNames != null) {
             for (String role : roleNames) {
                 GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -47,8 +47,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             }
         }
 
-        SocialUserDetailsImpl userDetails = new SocialUserDetailsImpl(appUser, roleNames);
-
-        return userDetails;
+        return new SocialUserDetailsImpl(appUser, roleNames);
     }
 }

@@ -5,15 +5,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.social.security.SocialUserDetails;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class SocialUserDetailsImpl implements SocialUserDetails {
 
+    @Serial
     private static final long serialVersionUID = 1L;
-    private List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
-    private AppUser appUser;
+    private final List<GrantedAuthority> list = new ArrayList<>();
+    private final AppUser appUser;
 
     public SocialUserDetailsImpl(AppUser appUser, List<String> roleNames) {
         this.appUser = appUser;

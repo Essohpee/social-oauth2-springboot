@@ -78,13 +78,6 @@ public class MainController {
         model.addAttribute("userInfo", userInfo);
         return "adminPage";
     }
-/*
-	@RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
-	public String logoutSuccessfulPage(Model model) {
-		model.addAttribute("title", "Logout");
-		System.out.println("logout called");
-		return "logoutSuccessfulPage";
-	}*/
 
     @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
     public String userInfo(Model model, Principal principal) {
@@ -130,7 +123,7 @@ public class MainController {
         ProviderSignInUtils providerSignInUtils = new ProviderSignInUtils(connectionFactoryLocator,
                 connectionRepository);
         Connection<?> connection = providerSignInUtils.getConnectionFromSession(request);
-        AppUserForm myForm = null;
+        AppUserForm myForm;
         if (connection != null) {
             myForm = new AppUserForm(connection);
         } else {
@@ -152,10 +145,10 @@ public class MainController {
             return "signupPage";
         }
 
-        List<String> roleNames = new ArrayList<String>();
+        List<String> roleNames = new ArrayList<>();
         roleNames.add(AppRole.ROLE_USER);
 
-        AppUser registered = null;
+        AppUser registered;
 
         try {
             registered = appUserDAO.registerNewUserAccount(appUserForm, roleNames);

@@ -18,7 +18,7 @@ public class SocialUserDetailsServiceImpl implements SocialUserDetailsService {
     @Override
     public SocialUserDetails loadUserByUserId(String userName) throws UsernameNotFoundException, DataAccessException {
         System.out.println("SocialUserDetailsServiceImpl.loadUserByUserId=" + userName);
-        UserDetails userDetails = ((UserDetailsServiceImpl) userDetailService).loadUserByUsername(userName);
+        UserDetails userDetails = userDetailService.loadUserByUsername(userName);
         return (SocialUserDetailsImpl) userDetails;
     }
 }

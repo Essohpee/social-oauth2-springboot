@@ -23,6 +23,7 @@ import org.springframework.social.google.connect.GoogleConnectionFactory;
 import org.springframework.social.security.AuthenticationNameUserIdSource;
 
 import javax.sql.DataSource;
+import java.util.Objects;
 
 @Configuration
 @EnableSocial
@@ -44,11 +45,11 @@ public class SocialConfig implements SocialConfigurer {
             this.autoSignUp = false;
         }
         
-        FacebookConnectionFactory ffactory = new FacebookConnectionFactory(env.getProperty("facebook.app.id"), env.getProperty("facebook.app.secret"));
+        FacebookConnectionFactory ffactory = new FacebookConnectionFactory(Objects.requireNonNull(env.getProperty("facebook.app.id")), Objects.requireNonNull(env.getProperty("facebook.app.secret")));
         ffactory.setScope(env.getProperty("facebook.scope"));
         cfConfig.addConnectionFactory(ffactory);
         
-        GoogleConnectionFactory gfactory = new GoogleConnectionFactory(env.getProperty("google.client.id"), env.getProperty("google.client.secret"));
+        GoogleConnectionFactory gfactory = new GoogleConnectionFactory(Objects.requireNonNull(env.getProperty("google.client.id")), Objects.requireNonNull(env.getProperty("google.client.secret")));
         gfactory.setScope(env.getProperty("google.scope"));
         cfConfig.addConnectionFactory(gfactory);
 

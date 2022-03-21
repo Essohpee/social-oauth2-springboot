@@ -103,7 +103,7 @@ public class AppUserDAO {
         appUser.setLastName(userProfile.getLastName());
         this.entityManager.persist(appUser);
         // Create default Role
-        List<String> roleNames = new ArrayList<String>();
+        List<String> roleNames = new ArrayList<>();
         roleNames.add(AppRole.ROLE_USER);
         this.appRoleDAO.createRoleFor(appUser, roleNames);
 

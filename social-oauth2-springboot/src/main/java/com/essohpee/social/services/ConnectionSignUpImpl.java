@@ -6,7 +6,7 @@ import org.springframework.social.connect.Connection;
 import org.springframework.social.connect.ConnectionSignUp;
 
 public class ConnectionSignUpImpl implements ConnectionSignUp {
-    private AppUserDAO appUserDAO;
+    private final AppUserDAO appUserDAO;
 
     public ConnectionSignUpImpl(AppUserDAO appUserDAO) {
         this.appUserDAO = appUserDAO;

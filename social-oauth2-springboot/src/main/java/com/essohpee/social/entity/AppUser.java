@@ -33,12 +33,12 @@ public class AppUser {
 
     @Column(name = "First_Name",
             length = 36,
-            nullable = true)
+            nullable = false)
     private String firstName;
 
     @Column(name = "Last_Name",
             length = 36,
-            nullable = true)
+            nullable = false)
     private String lastName;
 
     @Column(name = "Encryted_Password",

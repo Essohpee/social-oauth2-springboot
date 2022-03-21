@@ -11,9 +11,9 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 	</head>
 	<body>
-		<div class="jumbotron jumbotron-fluid">
+		<div class="jumbotron jumbotron-fluid p-3 mb-4 bg-secondary">
 	    		<h1 class="text-white">Social Media Login</h1><br>
-	    		<p>Social media login example. You can login by using Google, Facebook, Twitter and Linked In. <br/>All type of logins are more secured by using OAuth2.</p>
+	    		<p class="text-light">Social media login example. You can login by using Google, Facebook. <br/>All type of logins are more secured by using OAuth2.</p>
 		</div>
 		<div class="container">
 				<th:block th:include="/_menu"></th:block>  
@@ -21,8 +21,8 @@
   					<div class="col-sm-3">
   					</div>
   						<div class="col-sm-6">
-  							 <h3 th:if="${message != null}" th:utext="${message}" style="color: red;"></h3>
-    						<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+  							 <p th:if="${message != null}" th:utext="${message}" style="color: red;"></p>
+    						<p class="text-primary" th:if="${userInfo != null}" th:utext="${userInfo}"></p>
 					</div>
 					<div class="col-sm-3">
 					</div>
